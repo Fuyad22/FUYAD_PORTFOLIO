@@ -52,7 +52,8 @@ export default function Admin() {
       }
     } catch (e: any) {
       setLoading(false)
-      alert('Error saving: ' + e.message)
+      alert('Error s      git filter-repo --path node_modules --invert-paths
+      git push -f origin mainaving: ' + e.message)
     }
   }
 
