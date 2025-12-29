@@ -51,9 +51,8 @@ export default function Admin() {
         alert('Error saving: ' + (err.error || 'Unknown error'))
       }
     } catch (e: any) {
-      setLoading(false)
-      alert('Error s      git filter-repo --path node_modules --invert-paths
-      git push -f origin mainaving: ' + e.message)
+      setLoading(false);
+      alert('Error saving: ' + e.message);
     }
   }
 
