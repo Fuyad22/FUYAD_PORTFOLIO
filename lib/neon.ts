@@ -2,14 +2,16 @@
 import { Pool } from 'pg';
 
 // Reuse pool across serverless function invocations (Vercel/Next.js best practice)
-let pool: Pool | undefined = undefined;
+declare global {
+  // eslint-disable-next-line no-var
+  var _neonPool: Pool | undefined;
+}
 
-if (!globalThis._neonPool) {
-  globalThis._neonPool = new Pool({
+const pool =
+  global._neonPool ||
+  (global._neonPool = new Pool({
     connectionString: process.env.NEON_DATABASE_URL,
     ssl: { rejectUnauthorized: false },
-  });
-}
-pool = globalThis._neonPool;
+  }));
 
 export default pool;
